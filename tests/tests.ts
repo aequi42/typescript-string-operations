@@ -90,6 +90,7 @@ describe('String.Format', () => {
 
                 let expectedValue = "2017-03-21T22:15:01";
                 let result = String.Format(template, valueToInsert);
+
                 expect(result).to.equal(expectedValue);
             });
         });
@@ -120,12 +121,14 @@ describe('String.Format', () => {
             it('should pad 5 to 05 using {0:00}', () => {
                 let template = '{0:00}';
                 let result = String.Format(template, 5);
+
                 expect(result).to.equal('05');
             });
 
             it('should pad 5 to 005 using {0:000}', () => {
                 let template = '{0:000}';
                 let result = String.Format(template, 5);
+
                 expect(result).to.equal('005');
             });
 
@@ -138,6 +141,7 @@ describe('String.Format', () => {
 
                 expect(result).to.equal(expectedValue);
             });
+
             it('should set the correct thousands seperator keeping the decimals', () => {
                 let template = '{0:n}';
                 let valueToInsert = '10000000000,12345';
@@ -167,7 +171,7 @@ describe('String.Join', () => {
         expect(result).to.equal("red; yellow; blue");
     });
 
-    it('should join the given object', () => {
+    it('should join the values of the given object', () => {
         let object = { Name: "Foo", Value: "Bar" };
 
         let result = String.Join('.', object);

@@ -130,13 +130,12 @@ export class String {
 
                 let integer = parts[0];
 
-                var mod = integer.length % 3;
-                var output = (mod > 0 ? (integer.substring(0, mod)) : String.Empty);
-                var firstGroup = output;
-                var remainingGroups = integer.substring(mod).match(/.{3}/g);
+                let firstDigits = integer.length % 3;
+                let output = (firstDigits > 0 ? (integer.substring(0, firstDigits)) : String.Empty);
+                let remainingGroups = integer.substring(firstDigits).match(/.{3}/g);
+
                 output =  output + '.' + String.Join('.',remainingGroups);
-                arg = output + (parts.length > 1 ? ','+ parts[1] : '');
-                return arg;
+                return output + (parts.length > 1 ? ','+ parts[1] : '');
             default:
                 break;
         }
